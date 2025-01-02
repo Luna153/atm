@@ -1,0 +1,211 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3em;
+}
+
+// @supports (scrollbar-gutter: stable) {
+//   html {
+//     scrollbar-gutter: stable;
+//   }
+// }
+body {
+  height: 100%;
+}
+
+// 字體
+// ---------------------------------
+.maru-m {
+  font-family: "MaruM", Arial, Helvetica, sans-serif;
+  ;
+}
+
+.maru-r {
+  font-family: "MaruR", Arial, Helvetica, sans-serif;
+  ;
+}
+
+.maru-b {
+  font-family: "MaruB", Arial, Helvetica, sans-serif;
+  ;
+}
+
+.impact {
+  font-family: "Impact", Arial, Helvetica, sans-serif;
+  ;
+}
+
+// 對照設計稿
+// ---------------------------------
+.sketch {
+  width: 100%;
+  opacity: 0.2;
+  position: absolute;
+  // top: 40px;
+  z-index: 5;
+}
+
+// 共用
+// ---------------------------------
+.section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &.section-news {
+    padding-bottom: 0;
+  }
+
+  &-title {
+    // font-family: "MaruM";
+    font-size: px-em(35);
+    text-align: center;
+    // font-size: px-em(50);
+    // font-weight: bold;
+    // font-family: $custom-font-cht;
+    // text-align: center;
+    // color: $black;
+    // padding: 0 px-em(10, 50) px-em(16, 50);
+    // position: relative;
+    // min-width: 220px;
+    // display: inline-block;
+    // &:after {
+    //   content: '';
+    //   display: inline-block;
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   width: 100%;
+    //   height: px-em(4, 50);
+    //   background-color: $secondary-orange;
+    // }
+  }
+
+  &-subtitle {
+    font-size: px-em(30);
+    line-height: px-em(40, 30);
+    letter-spacing: 0.03em;
+    color: $gray-400;
+  }
+
+  &-kv {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  // 背景
+  &.bg-yellow {
+    background: $bg-yellow;
+  }
+
+  &.bg-white {
+    background: $white;
+    height: 800px;
+  }
+
+  @include breakpoint(sm) {
+    padding-top: vwm(60px);
+    padding-bottom: vwm(35px);
+
+    &-title {
+      font-size: vwm(50px);
+      padding: 0 vwm(10px) vwm(16px);
+      min-width: vwm(220px);
+
+      &:after {
+        height: vwm(4px);
+      }
+    }
+
+    &-subtitle {
+      .section-title+& {
+        margin-top: vwm(24px);
+      }
+
+      font-size: vwm(38px);
+      line-height: vwm(44px);
+      letter-spacing: -0.1em;
+
+      .ls-reset {
+        letter-spacing: normal;
+      }
+    }
+
+    &-kv {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// 共用按鈕
+.btn-round {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 278px;
+  height: 60px;
+  background-color: $color-yellow-button;
+  // padding: 20px 0 20px 0;
+  // padding-top: 20px;
+  margin: 0 auto;
+  font-size: 22px;
+  border-radius: 30px;
+  font-family: "MaruM";
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &::after {
+    content: '';
+    background-image: url('../images/img_btn-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    width: 10px;
+    height: 18px;
+    position: absolute;
+    right: 50px;
+    animation: slideInOutX 1s infinite;
+
+    @include breakpoint(sm) {
+      width: vwm(18px);
+      height: vwm(32px);
+      right: vwm(88px);
+    }
+  }
+
+  @include breakpoint(sm) {
+    width: vwm(480px);
+    height: vwm(103px);
+    font-size: clamp(12px, vwm(38px), vwm(38px));
+    border-radius: vwm(52px);
+
+
+  }
+}
+
+// Animations
+// ------------------------- //
+@keyframes slideInOutX {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,751 @@
+extends ../_layout.pug
+
+append vars
+  - var root = '../'
+  - var currentPage = 'intro'
+
+block content
+
+  main.index
+    //- KV
+    +section-kv()
+
+    section.section.section-introduce#section-introduce
+
+      //- 背景插圖
+      .section-activity__decobox
+        img(src=root+"images/img_kv-girl-skirt.svg" alt="img_kv-girl-skirt.svg")
+        img(src=root+"images/img_kv-man-bicycle.svg" alt="img_kv-man-bicycle.svg")
+        img(src=root+"images/img_kv-tree-left.svg" alt="img_kv-tree-left.svg")
+        img(src=root+"images/img_kv-car.svg" alt="img_kv-car.svg")
+        img(src=root+"images/img_kv-tree-right.svg" alt="img_kv-tree-right.svg")
+        img(src=root+"images/img_kv-tree-right-2.svg" alt="img_kv-tree-right-2 .svg")
+
+      .wrap__inner
+        .con__tableBox
+
+          //- 大版
+          .con__table--box#main-wrap
+            ul.table__nav.maruB.tab_pc
+              li.tabs_btn.btn-style.active(data-tab='tab-twAtm') ATM介紹
+              li.tabs_btn.btn-style(data-tab='tab-vein') 掌靜脈服務
+              li.tabs_btn.btn-style(data-tab='tab-phone') 手機門號轉帳
+              li.tabs_btn.btn-style(data-tab='tab-noCard') 無卡服務
+              li.tabs_btn.btn-style(data-tab='tab-cash') 現金存款
+              li.tabs_btn.btn-style(data-tab='tab-foreignAtm') 外幣ATM
+
+            //- 小版下拉式選單
+            .dropdown(onclick="toggleDropdown()")
+              ul.table__nav.maruB.tab_phone
+                .tabs_arrow
+                  img(src=root+"images/img_atm-arrow.svg" alt="")
+                #dropdownContent2.dropdown-content
+                  li#titleItem ATM介紹
+                #dropdownContent1.dropdown-content
+                  li.tabs_btn.btn-style_sm.active(data-tab='tab-twAtm')(onclick="selectItem('ATM介紹')") ATM介紹
+                  li.tabs_btn.btn-style_sm(data-tab='tab-vein')(onclick="selectItem('掌靜脈服務')") 掌靜脈服務
+                  li.tabs_btn.btn-style_sm(data-tab='tab-phone')(onclick="selectItem('手機門號轉帳')") 手機門號轉帳
+                  li.tabs_btn.btn-style_sm(data-tab='tab-noCard')(onclick="selectItem('無卡服務')") 無卡服務
+                  li.tabs_btn.btn-style_sm(data-tab='tab-cash')(onclick="selectItem('現金存款')") 現金存款
+                  li.tabs_btn.btn-style_sm(data-tab='tab-foreignAtm')(onclick="selectItem('外幣ATM')") 外幣ATM
+
+
+
+            //ATM介紹---------------------------------------------
+            #tab-twAtm.table__con.active
+              .table__container(data-aos="fade-up" data-aos-duration="900")
+                .twAtm
+                  .twAtm-img
+                    img(src=root+"images/photo_palm-vein.png" alt="")
+                  .twAtm-content
+                    .twAtm-content_icon.flex-center
+                      img(src=root+"images/icon_atm-intro-1.svg" alt="")
+                    .twAtm-content_text
+                      h3.maruB  提款
+                      ul
+                        li.dot 永豐金融卡每日提款預設限額為12萬元
+                        li.dot 他行金融卡每日提款限額依發卡銀行為主(單筆限額NT2萬元)
+                        li.dot 每次交易跨行手續費NT5元(依實際計收為準)
+                  .twAtm-content.transfer
+                    .twAtm-content_transfer
+                      .twAtm-content_icon.flex-center
+                        img(src=root+"images/icon_atm-intro-2.svg" alt="")
+                      .twAtm-content_text
+                        h3.maruB  轉帳
+                        ul
+                          li.dot 非約定轉帳單筆/單日限額為3萬元
+                          li.dot 跨行交易手續費：NT1,000(含)以下每次NT10元；NT1,001(含)以上每次NT15元(依實際計收為準)
+                        p 補充：轉帳金額NT500元(含)以下每日優惠一筆免手續費。
+                    p.transfer_sm.flex-center 補充：轉帳金額NT500元(含)以下每日優惠一筆免手續費。
+                  .twAtm-content
+                    .twAtm-content_icon.flex-center
+                      img(src=root+"images/icon_atm-intro-3.svg" alt="")
+                    .twAtm-content_text
+                      h3.maruB  存款
+                      ul
+                        li.dot 持任一銀行晶片金融卡存入非本人帳戶，單筆/單日限額NT3萬元
+                        li.dot 持他行晶片金融卡存入當次交易晶片金融卡帳戶，單筆/單日限額NT20萬元
+                        li.mobile.dot 每次交易跨行手續費NT15元(依實際計收為準)
+                      .twAtm-content_text-space
+                  .twAtm-content
+                    .twAtm-content_icon.flex-center
+                      img(src=root+"images/icon_atm-intro-4.svg" alt="")
+                    .twAtm-content_text
+                      h3.maruB  餘額查詢
+                      ul
+                        li 查詢個人晶片金融卡及名下帳戶餘額資訊
+                  .twAtm-content
+                    .twAtm-content_icon.flex-center
+                      img(src=root+"images/icon_atm-intro-5.svg" alt="")
+                    .twAtm-content_text
+                      h3.maruB  其他服務
+                      ul
+                        li 繳費/稅、愛心捐款、本行信用卡繳費、點燈安太歲(新年期間)
+                  .twAtm-content
+                    .twAtm-content_icon.flex-center
+                      img(src=root+"images/icon_atm-intro-6.svg" alt="")
+                    .twAtm-content_text
+                      h3.maruB  功能設定
+                      ul
+                        li.dot 無卡交易功能申請
+                        li.dot 晶片卡開卡
+
+            //掌靜脈服務---------------------------------------------
+            #tab-vein.table__con
+              .table__container
+                .illustrate.flex-center.maruB
+                  |不用帶卡片，臨櫃也可用
+                  br
+                  |準確度最高，使用最安全
+                h2.table__container-title.maruB.center 掌靜脈操作步驟
+
+                //- 掌靜脈服務TAB
+                .con__table--box-share
+                  ul.table__nav-share.maruB
+                    li.tabs_btn-vein.btn-style.active-vein(data-tab='tab-withdraw') 提款
+                    li.tabs_btn-vein.btn-style(data-tab='tab-deposit') 存款
+                    li.tabs_btn-vein.btn-style(data-tab='tab-transfer') 轉帳
+
+                //- 提款
+                #tab-withdraw.table__con-vein.table__con-share.active-vein
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-withdraw-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選掌靜脈服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-withdraw-2.png" alt="")
+                            .activate-steps--text
+                              .step 輸入身分證統一編號
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-withdraw-3.png" alt="")
+                            .activate-steps--text
+                              .step 掌靜脈驗證+密碼
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-withdraw-4.png" alt="")
+                            .activate-steps--text
+                              .step 選擇帳號&金額
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-withdraw-5.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                //- 存款
+                #tab-deposit.table__con-vein.table__con-share
+                  .splide.slider-atm_withdraw
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選掌靜脈服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-2.png" alt="")
+                            .activate-steps--text
+                              .step 輸入身分證統一編號
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-3.png" alt="")
+                            .activate-steps--text
+                              .step 掌靜脈驗證+密碼
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-4.png" alt="")
+                            .activate-steps--text
+                              .step 選擇存款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-5.png" alt="")
+                            .activate-steps--text
+                              .step 存入現金後確認金額
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-deposit-6.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                //- 轉帳
+                #tab-transfer.table__con-vein.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-transfer-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選掌靜脈服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-transfer-2.png" alt="")
+                            .activate-steps--text
+                              .step 輸入身分證統一編號
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-transfer-3.png" alt="")
+                            .activate-steps--text
+                              .step 掌靜脈驗證+密碼
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-transfer-4.png" alt="")
+                            .activate-steps--text
+                              .step 點選轉帳後輸入交易資料
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_palm-transfer-5.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                .qrcode
+                  img(src=root+"images/img_qrcode.png" alt="")
+                a.btn-round.more(href="https://bank.sinopac.com/sinopacBT/webevents/2207palmvein/index.html​" alt='永豐銀行'  target='_blank')
+                  span 了解更多
+                  .more-decorate
+                    span.more-decorate_rotate \ 點我 /
+
+            //手機門號轉帳---------------------------------------------
+            #tab-phone.table__con
+              .table__container
+                .illustrate.flex-center.maruB
+                  |記手機號碼，輕鬆又方便
+                  br
+                  |超快速轉帳，服務快又棒
+                h2.table__container-title.maruB.center 手機門號轉帳操作步驟
+
+                .splide.slider-atm
+                  .splide__track
+                    ul.row.imglist.splide__list
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_mobile-1.png" alt="")
+                          .activate-steps--text
+                            .step 插入金融卡
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_mobile-2.png" alt="")
+                          .activate-steps--text
+                            .step 點選轉帳服務
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_mobile-3.png" alt="")
+                          .activate-steps--text
+                            .step 請選擇轉帳方式
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_mobile-4.png" alt="")
+                          .activate-steps--text
+                            .step 請輸入轉帳資料
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_mobile-5.png" alt="")
+                          .activate-steps--text
+                            .step 交易完成
+                .atm-space
+            //無卡服務---------------------------------------------
+            #tab-noCard.table__con
+              .table__container
+                .illustrate.flex-center.maruB
+                  |不須帶卡片，簡單又方便
+                  br
+                  |不遺失卡片，安全又輕便
+                h2.table__container-title.maruB.center 無卡服務操作步驟
+
+                //- 無卡服務TAB - step1
+                .con__table--box-share
+                  ul.table__nav-share.maruB
+                    li.tabs_btn-step1.btn-style.active-step1(data-tab='tab-enable') 啟用
+                    li.tabs_btn-step1.btn-style(data-tab='tab-deactivate') 停用
+                    li.tabs_btn-step1.btn-style(data-tab='tab-change') 密碼變更
+
+                //- 啟用
+                #tab-enable.table__con-step1.table__con-share.active-step1
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-activate-1.png" alt="")
+                            .activate-steps--text
+                              .step 插入金融卡
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-activate-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選查詢/設定
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-activate-3.png" alt="")
+                            .activate-steps--text
+                              .step 點選設定
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-activate-4.png" alt="")
+                            .activate-steps--text
+                              .step 點選啟用無卡提款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-activate-5.png" alt="")
+                            .activate-steps--text
+                              .step 設定密碼即完成
+
+                //- 停用
+                #tab-deactivate.table__con-step1.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deactivate-1.png" alt="")
+                            .activate-steps--text
+                              .step 插入金融卡
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deactivate-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選查詢/設定
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deactivate-3.png" alt="")
+                            .activate-steps--text
+                              .step 點選設定
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deactivate-4.png" alt="")
+                            .activate-steps--text
+                              .step 點選停用無卡提款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deactivate-5.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                //- 密碼變更
+                #tab-change.table__con-step1.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-password-1.png" alt="")
+                            .activate-steps--text
+                              .step 插入金融卡
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-password-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選查詢/設定
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-password-3.png" alt="")
+                            .activate-steps--text
+                              .step 點選密碼變更
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-password-4.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡交易密碼
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-password-5.png" alt="")
+                            .activate-steps--text
+                              .step 設定密碼即完成
+
+
+                //- 無卡服務TAB - step2
+                .con__table--box-share.con__table--box-share_big.place
+                  ul.table__nav-share.table__nav-share--withoutCard.maruB
+                    li.tabs_btn-step2.btn-style.active-step2(data-tab='tab-pick') 提款
+                    li.tabs_btn-step2.btn-style(data-tab='tab-save') 存款
+                    li.tabs_btn-step2.btn-style(data-tab='tab-enterprise') 企業入金
+                    li.tabs_btn-step2.btn-style(data-tab='tab-credit') 繳信用卡費
+                    
+                //- 提款
+                #tab-pick.table__con-step2.table__con-share.active-step2
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-withdraw-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡提款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-withdraw-3.png" alt="")
+                            .activate-steps--text
+                              .step 輸入交易資料
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-withdraw-4.png" alt="")
+                            .activate-steps--text
+                              .step 輸入密碼
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-withdraw-5.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                //- 存款
+                #tab-save.table__con-step2.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡存款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-3.png" alt="")
+                            .activate-steps--text
+                              .step 點選現金存款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-4.png" alt="")
+                            .activate-steps--text
+                              .step 輸入帳號
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-deposit-5.png" alt="")
+                            .activate-steps--text
+                              .step 存入金額即完成
+
+                //- 企業入金
+                #tab-enterprise.table__con-step2.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-corp-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-corp-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡存款
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-corp-3.png" alt="")
+                            .activate-steps--text
+                              .step 選擇企業名稱
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-corp-4.png" alt="")
+                            .activate-steps--text
+                              .step 輸入銷帳編號
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-corp-5.png" alt="")
+                            .activate-steps--text
+                              .step 存入金額即完成
+
+                //- 繳信用卡費
+                #tab-credit.table__con-step2.table__con-share
+                  .splide.slider-atm
+                    .splide__track
+                      ul.row.imglist.splide__list
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-card-1.png" alt="")
+                            .activate-steps--text
+                              .step 點選無卡服務
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-card-2.png" alt="")
+                            .activate-steps--text
+                              .step 點選繳永豐信用卡
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-card-3.png" alt="")
+                            .activate-steps--text
+                              .step 選擇入帳方式
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-card-4.png" alt="")
+                            .activate-steps--text
+                              .step 存入金額
+
+                        li.splide__slide
+                          .activate-steps
+                            .activate-steps--screenshot
+                              img(src=root+"images/screens/scr_cardless-card-5.png" alt="")
+                            .activate-steps--text
+                              .step 交易完成
+
+                //- QR code提款
+                h3.table__container-qr_title.center QR Code 提款
+                .splide.slider-atm
+                  .splide__track
+                    ul.row.imglist.splide__list
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cardless-qrcode-1.png" alt="")
+                          .activate-steps--text
+                            .step 點選無卡服務
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cardless-qrcode-2.png" alt="")
+                          .activate-steps--text
+                            .step 點選 QR Code 無卡提款
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cardless-qrcode-3.png" alt="")
+                          .activate-steps--text
+                            .step APP 進行預約
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cardless-qrcode-4.png" alt="")
+                          .activate-steps--text
+                            .step APP 掃描 QR Code
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cardless-qrcode-5.png" alt="")
+                          .activate-steps--text
+                            .step 輸入密碼即完成
+                .atm-space
+
+            //現金存款---------------------------------------------
+            #tab-cash.table__con
+              .table__container
+                .illustrate.flex-center.maruB
+                  |鈔票硬幣，都沒問題
+                  br
+                  |隨時隨地，輕鬆便利
+                h2.table__container-title.maruB.center 現金存款操作步驟
+
+                .splide.slider-atm
+                  .splide__track
+                    ul.row.imglist.splide__list
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cash-1.png" alt="")
+                          .activate-steps--text
+                            .step 插入金融卡
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cash-2.png" alt="")
+                          .activate-steps--text
+                            .step 點選存款
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cash-3.png" alt="")
+                          .activate-steps--text
+                            .step 選擇帳號
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cash-4.png" alt="")
+                          .activate-steps--text
+                            .step 放入現金
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_cash-5.png" alt="")
+                          .activate-steps--text
+                            .step 交易完成
+                .atm-space
+
+            //外幣ATM---------------------------------------------
+            #tab-foreignAtm.table__con
+              .table__container
+                .illustrate.flex-center.maruB
+                  |日幣美元人民幣港幣
+                  br
+                  |多種幣別，輕鬆提領
+                h2.table__container-title.maruB.center 外幣操作步驟
+
+                .splide.slider-atm
+                  .splide__track
+                    ul.row.imglist.splide__list
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_foreign-1.png" alt="")
+                          .activate-steps--text
+                            .step 插入金融卡
+                              span.desc (不限永豐銀行金融卡)
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_foreign-2.png" alt="")
+                          .activate-steps--text
+                            .step 點選提款
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_foreign-3.png" alt="")
+                          .activate-steps--text
+                            .step 點選外幣提款
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_foreign-4.png" alt="")
+                          .activate-steps--text
+                            .step 選擇幣別&金額
+
+                      li.splide__slide
+                        .activate-steps
+                          .activate-steps--screenshot
+                            img(src=root+"images/screens/scr_foreign-5.png" alt="")
+                          .activate-steps--text
+                            .step 交易完成
+                .atm-space

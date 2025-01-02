@@ -1,0 +1,988 @@
+.section-introduce {
+  // web-1920
+  background-color: $color-purple-mid;
+  padding-bottom: 141px;
+  padding-top: 40px;
+
+  @include breakpoint(sm) {
+    padding-bottom: vwm(58px);
+    padding-top: vwm(70px);
+    scroll-margin-top: vwm(70px);
+  }
+
+  // TAB
+  .table__con {
+    background-color: $white;
+    border-radius: 0 0 30px 30px;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    @include breakpoint(sm) {
+      border-radius: vwm(30px);
+      border: 2px black solid;
+      border-radius: vwm(30px);
+      // margin-top: 10%;
+      margin-top: vwm(80px);
+    }
+
+    @include breakpoint(xs) {
+      border: 1px black solid;
+      // margin-top: vwm(100px);
+    }
+  }
+
+  .con__table--box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1000px;
+    border: 2px black solid;
+    border-radius: 30px;
+
+
+    @include breakpoint(sm) {
+      // width: vwm(735px);
+      border: none;
+      border-radius: 0;
+    }
+
+    @include breakpoint(xs) {
+      width: 100%;
+    }
+
+    ul.tab_phone {
+      display: none;
+      position: relative;
+
+      @include breakpoint(sm) {
+        display: block;
+        background-color: $white;
+        border: 2px black solid;
+        border-radius: vwm(30px);
+        padding: vwm(24px) 0;
+        // margin-bottom: vwm(30px);
+        position: absolute;
+        // width: vwm(735px);
+        top: 8px;
+        left: 15px;
+        right: 15px;
+        z-index: 2;
+        // min-height: 103px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include breakpoint(xs) {
+        border: 1px black solid;
+        padding: vwm(20px) 0;
+      }
+
+      .tabs_arrow {
+        display: none;
+
+        img {
+          z-index: 100;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          transition: transform 0.2s $cubic;
+        }
+
+        @include breakpoint(sm) {
+          display: block;
+          position: absolute;
+          top: vwm(38px);
+          right: 9%;
+          width: vwm(13px);
+          // height: 30px;
+          cursor: pointer;
+          z-index: 3;
+        }
+
+        @include breakpoint(xs) {
+          top: vwm(30px);
+        }
+      }
+
+      .dropdown-content {
+        margin: auto;
+        // padding: 10px 0;
+      }
+
+      #titleItem {
+        font-size: vwm(36px);
+        // letter-spacing: 1.1px;
+        // padding-right: 10px;
+        margin: vwm(10px) 0;
+        animation: fadeInUp 0.2s cubic-bezier(0.77, 0.2, 0.05, 1);
+      }
+
+      .btn-style_sm {
+        @include breakpoint(sm) {
+          font-size: vwm(36px);
+          text-align: center;
+          color: $black;
+          // line-height: 3;
+          margin: vwm(10px) 0;
+          padding: vwm(24px) 0;
+          &.active {
+            color: $black;
+            background-color: $color-yellow-button;
+            // position: relative;
+            // padding: vwm(21px) 0;
+            border-radius: vwm(40px);
+            width: vwm(480px);
+            // height: vwm(80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.6s $cubic;
+          }
+        }
+      }
+    }
+
+    // 大版tabs
+    ul.tab_pc {
+      display: flex;
+      justify-content: center;
+      // gap: 15px;
+      background-color: #4D6294;
+      border-radius: 28px 28px 0 0;
+      position: relative;
+
+      @include breakpoint(sm) {
+        display: none;
+      }
+    }
+  }
+
+  .table__nav {
+    // @include breakpoint(sm) {
+    //   flex-direction: column;
+    //   align-items: center;
+    //   margin-bottom: vwm(32px);
+    // }
+
+    .btn-style {
+      color: $color-faq-bg;
+      font-size: 22px;
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+      padding: 20px 0;
+
+      &::after {
+        content: '';
+        width: 1px;
+        height: 25px;
+        background-color: $color-faq-bg;
+        position: absolute;
+        right: 0;
+      }
+
+      &:nth-child(6) {
+        &::after {
+          display: none;
+        }
+      }
+
+      &:hover {
+        color: $color-yellow-button;
+      }
+
+      &.active {
+        color: $color-yellow-button;
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 2px;
+          background-color: $color-yellow-button;
+          position: absolute;
+          left: 0;
+          bottom: 2px;
+        }
+
+        &::after {
+          content: '';
+          width: 1px;
+          height: 25px;
+          background-color: $color-faq-bg;
+          position: absolute;
+          right: 0;
+        }
+
+        &:nth-child(6) {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+
+  .activate-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--screenshot {
+      width: 400px;
+      border: 2px #7BA0E9 solid;
+      border-radius: 25px;
+
+      @include breakpoint(sm) {
+        width: vwm(590px);
+        border-radius: vwm(36px);
+      }
+
+      img {
+        // border-radius: 13px;
+        width: 100%;
+        vertical-align: top;
+        border-radius: 25px;
+
+        @include breakpoint(sm) {
+          border-radius: vwm(36px);
+        }
+      }
+    }
+
+    &--text {
+      color: $black;
+      display: flex;
+      font-size: 20px;
+      line-height: 1.5;
+
+      @include breakpoint(sm) {
+        font-size: vwm(30px);
+        // font-size: clamp(16px, 4vw, 30px);
+      }
+
+      .step {
+        padding: 24px 0 30px 0;
+        letter-spacing: 1px;
+        font-weight: 300;
+
+        @include breakpoint(sm) {
+          padding: vwm(24px) 0 vwm(33px) 0;
+          font-size: vwm(38px);
+          letter-spacing: 1.2px;
+        }
+
+        .desc {
+          color: #EA5A64;
+        }
+      }
+    }
+  }
+
+  .table__container {
+    padding-top: 55px;
+    padding-bottom: 80px;
+    animation: fadeUp 1s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    // min-height: 1280px;
+    @include breakpoint(sm) {
+      padding-top: vwm(37px);
+      padding-bottom: vwm(58px);
+      min-height: 0;
+      letter-spacing: 1.5px;
+    }
+
+    .twAtm {
+      max-width: 700px;
+      box-sizing: border-box;
+      margin: auto;
+
+      // padding-bottom: 80px;
+      @include breakpoint(sm) {
+        padding-bottom: 0;
+        margin: 0 auto;
+        padding-left: vwm(43px);
+        padding-right: vwm(43px);
+      }
+
+      // 橢圓形圖
+      &-img {
+        max-width: 460px;
+        margin: auto;
+        padding-bottom: 24px;
+
+        img {
+          width: 100%;
+        }
+
+        @include breakpoint(sm) {
+          max-width: vwm(640px);
+        }
+      }
+
+      .transfer {
+        display: block;
+        // padding-bottom: vwm(37px);
+
+        &_sm {
+          display: none;
+
+          @include breakpoint(sm) {
+            display: block;
+            font-size: vwm(26px);
+            font-weight: 300;
+            width: 90%;
+            background-color: #EFEFEF;
+            padding: 20px;
+            // margin: auto;
+            width: 100%;
+            margin-bottom: vwm(20px);
+          }
+
+          @include breakpoint(xs) {
+            width: 95%;
+          }
+        }
+      }
+
+      &-content {
+        width: 700px;
+        display: flex;
+        position: relative;
+        min-height: 133px;
+
+        @include breakpoint(sm) {
+          width: 100%;
+          padding-bottom: vwm(20px);
+          // margin: auto;
+        }
+
+        &_transfer {
+          display: flex;
+        }
+
+        &_icon {
+          width: 64px;
+          margin-left: 25px;
+
+          &>img {
+            width: 100%;
+          }
+
+          @include breakpoint(sm) {
+            width: vwm(110px);
+            margin-left: 0;
+          }
+        }
+
+        img {
+          // width: 100%;
+          // vertical-align: top;
+        }
+
+        &_text {
+          padding: 8px 0 21px 39px;
+          width: 90%;
+          letter-spacing: 1px;
+          line-height: 1.2;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          @include breakpoint(sm) {
+            padding: vwm(12px) 0 vwm(20px) vwm(50px);
+            width: 83%;
+          }
+
+          h3 {
+            line-height: 2;
+            font-size: 22px;
+            letter-spacing: 0;
+
+            @include breakpoint(sm) {
+              font-size: vwm(33px);
+            }
+          }
+
+          ul {
+            line-height: 1.4;
+            font-size: 16px;
+            // letter-spacing: 0.8px;
+
+            @include breakpoint(sm) {
+              font-size: vwm(30px);
+            }
+
+            li {
+
+              // font-weight: 300;
+              @include breakpoint(sm) {
+                letter-spacing: 2px;
+              }
+
+              &.dot {
+                font-weight: 400;
+                position: relative;
+                padding-left: 16px;
+                letter-spacing: 0.7px;
+                line-height: 1.5;
+
+                @include breakpoint(sm) {
+                  letter-spacing: 2px;
+                  line-height: 1.4;
+                  padding-bottom: 2px;
+                }
+
+                &::after {
+                  content: '';
+                  background-color: $black;
+                  width: 2px;
+                  height: 2px;
+                  border-radius: 50%;
+                  position: absolute;
+                  left: 7px;
+                  top: 14px;
+
+                  @include breakpoint(sm) {
+                    // display: none;
+                    width: vwm(6px);
+                    height: vwm(6px);
+                    left: vwm(3px);
+                    top: vwm(19px);
+                  }
+                }
+              }
+
+              &.mobile {
+                display: none;
+
+                @include breakpoint(sm) {
+                  display: block;
+                }
+              }
+            }
+          }
+
+          p {
+            font-size: 12px;
+            font-weight: 300;
+            width: 100%;
+            background-color: #EFEFEF;
+            padding: 12px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            letter-spacing: 0.8px;
+
+            @include breakpoint(sm) {
+              display: none;
+            }
+          }
+
+          &-space {
+            padding: 13px 0;
+
+            @include breakpoint(sm) {
+              display: none;
+            }
+          }
+        }
+
+        &::after {
+          content: '';
+          width: 700px;
+          height: 1px;
+          background-color: #969696;
+          position: absolute;
+          bottom: 0;
+
+          @include breakpoint(sm) {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .illustrate {
+      width: 520px;
+      height: 133px;
+      border-radius: 66px;
+      background-color: #D6D9F7;
+      font-size: 22px;
+      // letter-spacing: 1px;
+      line-height: 1.4;
+      margin: auto;
+
+      @include breakpoint(sm) {
+        width: vwm(650px);
+        height: vwm(160px);
+        font-size: vwm(30px);
+        border-radius: vwm(81px);
+        letter-spacing: 2px;
+      }
+    }
+
+    &-title {
+      font-size: 35px;
+      padding: 59px 0 40px 0;
+
+      @include breakpoint(sm) {
+        font-size: vwm(50px);
+        padding: vwm(59px) 0 vwm(53px) 0;
+      }
+    }
+
+    // TAB
+    .table__con-share {
+      background-color: $white;
+      border-radius: 0 0 30px 30px;
+      display: none;
+
+      &.active-vein {
+        display: block;
+        animation: fadeUp 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+      }
+
+      &.active-step1 {
+        display: block;
+        animation: fadeUp 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+      }
+
+      &.active-step2 {
+        display: block;
+        animation: fadeUp 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+      }
+    }
+
+    .splide__pagination__page {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border-radius: 50%;
+      margin: calc(19px / 2);
+      padding: 0;
+      transition: transform 0.2s linear;
+      border: 2px black solid;
+      opacity: 1;
+      font-family: MaruM;
+      ;
+
+      @include breakpoint(sm) {
+        width: vwm(28px);
+        height: vwm(28px);
+        // margin: 0 vwm(41px);
+      }
+
+      @include breakpoint(xs) {
+        border: vwm(2px) black solid;
+      }
+    }
+
+    .splide__pagination__page.is-active {
+      width: 28px;
+      height: 28px;
+      transform: none;
+      background: $color-faq-title;
+      margin: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint(sm) {
+        width: vwm(78px);
+        height: vwm(78px);
+      }
+
+      @include breakpoint(xs) {
+        border: vwm(2px) black solid;
+      }
+
+      &::after {
+        content: '';
+        font-size: 19px;
+        font-family: 'MaruGothicM';
+        color: $white;
+        position: absolute;
+
+        @include breakpoint(sm) {
+          font-size: vwm(40px);
+        }
+      }
+    }
+
+    .splide__pagination {
+      position: relative;
+      z-index: 1;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 235px;
+
+      &::before {
+        content: '';
+        height: 2px;
+        background-color: #010000;
+        position: absolute;
+        top: calc(50% - 1px);
+        z-index: -1;
+        right: 10%;
+        left: 10%;
+
+        @include breakpoint(sm) {
+          left: 5%;
+          right: 5%;
+        }
+
+        @include breakpoint(xs) {
+          height: vwm(2px);
+        }
+      }
+
+      @include breakpoint(sm) {
+        width: 84%;
+      }
+
+      li {
+        box-sizing: content-box;
+        list-style-type: none;
+        display: inline-block;
+        line-height: 1;
+        margin: 0;
+        counter-increment: item;
+
+        .splide__pagination__page.is-active {
+          &::after {
+            content: counter(item);
+          }
+        }
+      }
+    }
+
+    .slider-atm {
+      .splide__pagination {
+        &::before {
+          // content: '';
+          // width: 220px;
+          // height: 2px;
+          // background-color: $black;
+          // position: absolute;
+          // bottom: 10px;
+          // right: 38%;
+          // z-index: -1;
+
+          @include breakpoint(sm) {
+            width: auto;
+            // width: vwm(480px);
+            bottom: calc(50% - 1px);
+            left: 5%;
+            right: 5%;
+          }
+
+          @include breakpoint(xs) {
+            height: vwm(2px);
+          }
+        }
+      }
+    }
+
+    .con__table--box-share {
+      margin: 0 auto;
+      width: 360px;
+      border-radius: 30px;
+
+      &_big {
+        width: 480px;
+      }
+
+      &_phone {
+        display: none;
+
+        @include breakpoint(sm) {
+          display: block;
+        }
+      }
+
+      @include breakpoint(sm) {
+        width: vwm(640px);
+      }
+
+      ul.table__nav-share {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding-bottom: 40px;
+
+        @include breakpoint(sm) {
+          font-size: 2rem;
+          flex-direction: row;
+          gap: vwm(12px);
+          align-items: center;
+          padding-bottom: vwm(60px);
+        }
+
+        @include breakpoint(xs) {
+          padding-bottom: vwm(60px);
+        }
+
+        // ---------實際長這個樣子
+        // .con__table--box-share.con__table--box-share_big.place
+        // ul.table__nav-share.table__nav-share--withoutCard.maruB
+        //   li.tabs_btn-step2.btn-style.active-step2(data-tab='tab-pick') 提款
+        //   li.tabs_btn-step2.btn-style(data-tab='tab-save') 存款
+        //   li.tabs_btn-step2.btn-style(data-tab='tab-enterprise') 企業入金
+        //   li.tabs_btn-step2.btn-style(data-tab='tab-credit') 繳信用卡費
+        
+        &--withoutCard {
+          gap: 5px;
+
+          @include breakpoint(sm) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+
+            .btn-style {
+              width: auto;
+              flex: 0 0 50%;
+              max-width: 50%;
+              padding-top: 32px !important;
+            }
+          }
+        }
+
+        &::after {
+          content: '';
+          width: 100%;
+          height: 2px;
+          background-color: #EFEFEF;
+          position: absolute;
+          bottom: 35px;
+          z-index: 0;
+
+          @include breakpoint(sm) {
+            width: 100%;
+            bottom: vwm(47px);
+          }
+        }
+
+        .btn-style {
+          color: #333333;
+          font-size: 22px;
+          width: 100%;
+          cursor: pointer;
+          text-align: center;
+          position: relative;
+          z-index: 1;
+          padding: 10px 0;
+
+          @include breakpoint(sm) {
+            font-size: vwm(40px);
+          }
+
+          &:hover {
+            color: $color-faq-title;
+            // transform: scale(1.05);
+          }
+
+          &.active-vein {
+            color: $color-faq-title;
+            position: relative;
+
+            &::before {
+              content: '';
+              width: 100%;
+              height: 2px;
+              background-color: $color-faq-title;
+              position: absolute;
+              left: 0;
+              bottom: -5px;
+
+              @include breakpoint(sm) {
+                bottom: vwm(-13px);
+              }
+            }
+
+            &::after {
+              content: '';
+              width: 1px;
+              height: 25px;
+              background-color: $white;
+              position: absolute;
+              right: -5px;
+            }
+          }
+
+          &.active-step1 {
+            color: $color-faq-title;
+            position: relative;
+
+            &::before {
+              content: '';
+              width: 100%;
+              height: 2px;
+              background-color: $color-faq-title;
+              position: absolute;
+              left: 0;
+              bottom: -5px;
+
+              @include breakpoint(sm) {
+                bottom: vwm(-13px);
+              }
+            }
+
+            &::after {
+              content: '';
+              width: 1px;
+              height: 25px;
+              background-color: $white;
+              position: absolute;
+              right: -5px;
+            }
+          }
+
+          &.active-step2 {
+            color: $color-faq-title;
+            position: relative;
+
+            &::before {
+              content: '';
+              width: 100%;
+              height: 2px;
+              background-color: $color-faq-title;
+              position: absolute;
+              left: 0;
+              bottom: -5px;
+
+              @include breakpoint(sm) {
+                bottom: vwm(-13px);
+              }
+            }
+
+            &::after {
+              content: '';
+              width: 1px;
+              height: 25px;
+              background-color: $white;
+              position: absolute;
+              right: -5px;
+            }
+          }
+        }
+      }
+    }
+
+    .qrcode {
+      width: 200px;
+      margin: auto;
+      padding: 66px 0 36px 0;
+
+      @include breakpoint(sm) {
+        display: none;
+      }
+    }
+
+    .more {
+      position: relative;
+      margin-bottom: 18px;
+
+      @include breakpoint(sm) {
+        margin-top: vwm(105px);
+        margin-bottom: 0;
+      }
+
+      @keyframes zoom-in-out {
+        0% {
+          transform: scale(0.8);
+        }
+
+        50% {
+          transform: scale(1);
+        }
+
+        100% {
+          transform: scale(0.8);
+        }
+      }
+
+      &-decorate {
+        position: absolute;
+        right: -14%;
+        top: -21px;
+        color: $color-faq-title;
+        font-size: 20px;
+        animation: zoom-in-out 1s ease-in-out infinite;
+
+        @include breakpoint(sm) {
+          font-size: vwm(29px);
+          right: -12%;
+          top: -26%;
+        }
+
+        &_rotate {
+          display: block;
+          transform: rotate(38deg);
+        }
+      }
+    }
+
+    .place {
+      padding-top: 58px;
+
+      @include breakpoint(sm) {
+        padding-top: vwm(70px);
+      }
+    }
+
+    &-qr_title {
+      font-size: 22px;
+      color: $color-faq-title;
+      padding-top: 54px;
+      padding-bottom: 50px;
+      position: relative;
+
+      @include breakpoint(sm) {
+        padding-top: vwm(70px);
+        font-size: vwm(40px);
+      }
+
+      &::after {
+        content: '';
+        width: 120px;
+        height: 2px;
+        background-color: $color-faq-title;
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include breakpoint(sm) {
+          width: 25%;
+          left: 50%;
+        }
+      }
+    }
+
+    .atm-space {
+      padding-bottom: 28px;
+
+      @include breakpoint(sm) {
+        display: none;
+      }
+    }
+  }
+
+
+  // web中版-1420
+  @include breakpoint(xl) {}
+
+  // 行動裝置大版Pad-1024
+  @include breakpoint(md) {}
+
+  // 小網-768
+  @include breakpoint(sm) {}
+}

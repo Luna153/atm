@@ -1,0 +1,157 @@
+footer {
+  width: 100%;
+  background-color: #234481;
+
+  .footer-content {
+    padding: 24.5px 0;
+
+    @include breakpoint(sm) {
+      padding: vwm(40px) vwm(24px);
+    }
+  }
+
+  p {
+    // padding: 15px 0;
+    letter-spacing: 0.03em;
+    color: #fff;
+    font-size: px-em(13);
+    text-align: center;
+    margin: 0 auto;
+
+    @include breakpoint(sm) {
+      font-size: vwm(30px);
+    }
+  }
+
+  a {
+    // text-decoration: underline;
+    padding: 0px 8px;
+  }
+
+  .copyright-logo-text {
+    display: inline-flex;
+    align-items: center;
+
+    .sinopac-icon {
+      margin: 0 10px;
+      @include size(22px, 22px);
+
+      @include breakpoint(sm) {
+        width: vwm(22px);
+        margin: 0 vwm(10px);
+      }
+    }
+  }
+
+  @include breakpoint(sm) {
+    padding-bottom: vwm(122.9px);
+  }
+}
+
+
+// 浮動按鈕
+.fixedIcon {
+  &__area {
+    background: $white;
+    border-radius: 50%;
+    border: 2px solid $black;
+    position: fixed;
+    bottom: 6.8%;
+    // right: 68px;
+    right: clamp(16px, 2vw, 68px);
+    transition: transform 0.2s;
+    @include size(175px, 175px);
+    @include flex-center;
+    z-index: 7;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    a {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      @include flex-center;
+
+      img {
+        margin: px-em(5);
+        @include size(65px, 73px);
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        // &:nth-child(3) {
+        //   display: none;
+        // }
+
+      }
+
+      span {
+        font-size: 24px;
+        color: $black;
+        max-width: 6em;
+
+      }
+
+      .footer-arrow {
+        display: none;
+      }
+    }
+  }
+
+  @include breakpoint(sm) {
+    &__area {
+      background-color: $black;
+      border-radius: vwm(57.6px) vwm(57.6px) 0 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: vwm(122.9px);
+
+      .fixed-icon {
+        color: $white;
+      }
+
+      a {
+        flex-direction: row;
+
+        img {
+          margin-right: vwm(16px);
+          width: vwm(71.68px);
+
+          &:nth-child(1) {
+            display: none;
+          }
+
+          &:nth-child(2) {
+            display: block;
+          }
+
+          // &:nth-child(3) {
+          //   display: block;
+          //   @include size(vwm(13px) vwm(27px))
+          // }
+        }
+
+        span {
+          font-size: clamp(20px, vwm(40px), vwm(40px));
+          max-width: 100%;
+          color: #fff;
+          margin-right: vwm(25px);
+        }
+
+        .footer-arrow {
+          display: block;
+          width: vwm(20px);
+          // height: vwm(27px);
+          // font-size: 10px;
+          // @include size(vwm(13px) vwm(27px))
+        }
+      }
+
+    }
+  }
+}

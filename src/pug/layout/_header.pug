@@ -1,0 +1,29 @@
+header.header
+  .wrap__inner
+    .header__inner
+      a.header__logo(href="https://bank.sinopac.com/sinopacBT/index.html" target='_blank' title='')
+        img.header__logo-img(src=root+'images/sinopac_logo.png' alt='永豐銀行' )
+      .header__nav.nav
+        a.nav__trigger
+          .nav__hamburger
+        .nav__menu-wrap
+          ul.nav__menu.nav__menu--links
+            li.nav__item
+              if currentPage === 'intro'
+                a.nav__link.active(href=root+'index.html' title='kv') 首頁
+              else
+                a.nav__link.active(href='index.html' title='kv') 首頁
+            li.nav__item
+              if currentPage === 'intro'
+                a.nav__link(href='#section-introduce' title='ATM功能介紹') ATM功能介紹
+              else
+                a.nav__link(href='introduce/index.html#section-introduce' title='ATM功能介紹') ATM功能介紹
+            li.nav__item
+              a.nav__link(href='https://bank.sinopac.com/sinopacBT/webevents/2207palmvein/index.html' title='掌靜脈專區' target='blank') 掌靜脈專區
+            li.nav__item
+              a.nav__link#btnFindATM(href='https://bank.sinopac.com/MMA8/CustomerService/BranchService/ATM.html' title='找ATM' target='_blank') 找ATM
+            li.nav__item
+              if currentPage === 'intro'
+                a.nav__link(href=root + 'index.html#section-faq' title='FAQ') FAQ
+              else
+                a.nav__link(href='#section-faq' title='FAQ') FAQ

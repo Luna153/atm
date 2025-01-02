@@ -1,0 +1,52 @@
+
+//- section
+mixin section-activity()
+  section.section-activity.section#section-activity
+    //- 背景插圖
+    .section-activity__decobox
+      img(src=root+"images/img_kv-girl-skirt.svg" alt="img_kv-girl-skirt.svg")(data-aos="fade-right" data-aos-duration="2400")
+      img(src=root+"images/img_kv-man-bicycle.svg" alt="img_kv-man-bicycle.svg")(data-aos="fade-right" data-aos-duration="2400")
+      img(src=root+"images/img_kv-tree-left.svg" alt="img_kv-tree-left.svg")(data-aos="fade-right" data-aos-duration="2400")
+      img(src=root+"images/img_kv-car.svg" alt="img_kv-car.svg")(data-aos="fade-left" data-aos-duration="2400")
+      img(src=root+"images/img_kv-tree-right.svg" alt="img_kv-tree-right.svg")(data-aos="fade-left" data-aos-duration="2400")
+      img(src=root+"images/img_kv-tree-right-2.svg" alt="img_kv-tree-right-2 .svg")(data-aos="fade-left" data-aos-duration="2400")
+
+    .wrap__inner
+      .section-activity__box.js-animate.js-animate--fadein-down.js-animate--active
+        .section-title.maru-b ATM熱門功能
+        .section-activity__cards
+          .section-activity__circle-card.section-activity_card-1(data-aos="fade-up" data-aos-duration="900")
+            .card-img
+              img(src=root+"images/icon_atm-feature-1.svg" alt='')
+            .card-desc.maru-m 掌靜脈服務
+          .section-activity__circle-card.section-activity_card-2(data-aos="fade-up" data-aos-duration="1200")
+            .card-img
+              img(src=root+"images/icon_atm-feature-2.svg" alt='')
+            .card-desc.maru-m 手機門號轉帳
+          .section-activity__circle-card.section-activity_card-3(data-aos="fade-up" data-aos-duration="1500")
+            .card-img
+              img(src=root+"images/icon_atm-feature-3.svg" alt='')
+            .card-desc.maru-m 無卡服務
+        a.btn-round(href="introduce/index.html#section-introduce" alt="更多熱門功能")
+          span 更多熱門功能
+      .section-activity__box.js-animate.js-animate--fadein-down.js-animate--active
+        .section-title.maru-b 掌靜脈特色
+        .section-activity__cards
+          .section-activity__circle-card.section-activity_card-4(data-aos="fade-up" data-aos-duration="900")
+            .card-img
+              img(src=root+"images/icon_palm-vein-1.svg" alt='')
+            .card-desc.maru-m 安全性最高
+          .section-activity__circle-card.section-activity_card-5(data-aos="fade-up" data-aos-duration="1200")
+            .card-img
+              img(src=root+"images/icon_palm-vein-2.svg" alt='')
+            .card-desc.maru-m 不再攜帶印章
+          .section-activity__circle-card.section-activity_card-6(data-aos="fade-up" data-aos-duration="1500")
+            .card-img
+              img(src=root+"images/icon_palm-vein-3.svg" alt='')
+            .card-desc.maru-m 降低冒用風險
+        a.btn-round(href="https://bank.sinopac.com/sinopacBT/webevents/2207palmvein/index.html" alt="深入了解" target='_blank')
+          span 深入了解
+
+
+
+

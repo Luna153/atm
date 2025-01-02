@@ -1,0 +1,94 @@
+.section-news {
+  background-color: $color-purple-mid;
+
+  .wrap__inner {
+    padding-bottom: 120px;
+  }
+
+  .section-title {
+    color: $white;
+    margin-top: 15px;
+    margin-bottom: 38px;
+  }
+
+  .splide {
+
+    &__arrow {
+      margin-top: 5px;
+      width: 20px;
+
+      &--next {
+        right: -75px;
+
+        &::before {
+          content: url("../images/img_arrow_next.svg");
+        }
+      }
+
+      &--prev {
+        left: -75px;
+
+        &::before {
+          content: url("../images/img_arrow_prev.svg");
+        }
+      }
+    }
+
+    &__slide {
+      transition: .25s ease;
+      &:hover {
+        filter: brightness(.9);
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 400px;
+      max-height: 300px;
+    }
+
+  }
+
+
+
+  // web中版-1420
+  @include breakpoint(xl) {
+    .wrap__inner {
+      // display: none;
+    }
+
+    .splide {
+
+      &__arrow {
+        margin-top: 5px;
+        width: 20px;
+
+        &--next {
+          right: -20px;
+        }
+
+        &--prev {
+          left: -20px;
+        }
+      }
+
+    }
+
+    img {
+      width: vwm(200px);
+      height: vwm(150px);
+    }
+
+  }
+
+  // 行動裝置大版Pad-1024
+  @include breakpoint(md) {}
+
+  // 小網-768
+  @include breakpoint(sm) {
+    .wrap__inner {
+      display: none;
+    }
+  }
+}

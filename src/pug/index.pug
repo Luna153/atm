@@ -1,0 +1,15 @@
+extends _layout.pug
+
+append vars
+  - var root = ''
+
+block content
+  main.index
+    //- 主視覺KV
+    +section-kv()
+    //- 掌靜脈專區
+    +section-activity()
+    //- 最新消息
+    +section-news()
+    //- FAQ
+    +section-faq()

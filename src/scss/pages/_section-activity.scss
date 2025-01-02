@@ -1,0 +1,204 @@
+.section-activity {
+  background-color: $color-purple-mid;
+  padding-top: 40px;
+  padding-bottom: 0;
+
+  .section-title {
+    letter-spacing: 2px;
+  }
+
+  &__decobox {
+    width: 100%;
+
+    img {
+      position: absolute;
+      // girl skirt
+      &:nth-child(1) {
+        width: 38.1px;
+        top: calc(0% + 181px);
+        left: calc(50% - 840px);
+        // animation: slideLeft 15s ease-in-out infinite;
+      }
+      // man bicycle
+      &:nth-child(2) {
+        width: 93.5px;
+        top: calc(0% + 240px);
+        left: calc(50% - 770px);
+      }
+      // tree left
+      &:nth-child(3) {
+        width: 141.6px;
+        top: calc(0% + 685px);
+        left: calc(50% - 845px);
+        // animation: titleBounce 5s ease-in-out infinite;
+      }
+      // taxi
+      &:nth-child(4) {
+        width: 68.7px;
+        top: calc(0% + 475px);
+        right: calc(50% - 718px);
+        // animation: slideRight 15s ease-in-out infinite;
+      }
+      // tree right upper
+      &:nth-child(5) {
+        width: 141.6px;
+        top: calc(0% + 188px);
+        right: calc(50% - 888px);
+        // animation: titleBounce 10s ease-in-out infinite;
+      }
+      // tree right lower
+      &:nth-child(6) {
+        width: 83.3px;
+        top: calc(0% + 823px);
+        right: calc(50% - 831px);
+        // animation: titleBounce 5s ease-in-out infinite;
+      }
+    }
+  }
+
+  &__box {
+    background-color: $white;
+    max-width: 1000px;
+    border: 2px solid $black;
+    border-radius: 30px;
+    padding: 36px 3.33% 50px 3.33%;
+    padding-bottom: 50px;
+    margin: 0 auto;
+
+    &:last-child {
+      margin-top: 40px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 613px;
+    margin: 0 auto;
+    gap: 30px;
+    @include breakpoint(sm) {
+      gap: vwm(30px);
+    }
+  }
+
+  &__circle-card {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 35px;
+    margin-bottom: 40px;
+
+    .card-img {
+      width: 100%;
+      max-width: 165px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      margin-bottom: 18px;
+      background-color: $color-faq-bg;
+    }
+
+    .card-desc {
+      font-size: 22px;
+    }
+  }
+
+  // web中版-1420
+  @include breakpoint(xl) {
+    &__decobox {
+      display: none;
+      // width: 100%;
+
+      // img {
+      //   position: absolute;
+
+      //   &:nth-child(1) {
+      //     width: vwm(20px);
+      //     top: calc(0% + 136px);
+      //     left: calc(50% - #{vwm(380px)});
+      //   }
+
+      //   &:nth-child(2) {
+      //     width: vwm(30px);
+      //     top: calc(0% + 195px);
+      //     left: calc(50% - #{vwm(776px)});
+      //   }
+
+      //   &:nth-child(3) {
+      //     width: vwm(45px);
+      //     top: calc(0% + 630px);
+      //     left: calc(50% - #{vwm(380px)});
+      //   }
+
+      //   &:nth-child(4) {
+      //     width: 68.7px;
+      //     top: calc(0% + 428px);
+      //     right: calc(50% - 718px);
+      //   }
+
+      //   &:nth-child(5) {
+      //     width: 141.6px;
+      //     top: calc(0% + 146px);
+      //     right: calc(50% - 888px);
+      //   }
+
+      //   &:nth-child(6) {
+      //     width: 83.3px;
+      //     top: calc(0% + 783px);
+      //     right: calc(50% - 831px);
+      //   }
+      // }
+    }
+  }
+
+  // 行動裝置大版Pad-1024
+  @include breakpoint(md) {
+    &__box {
+      margin: 0 vwm(30px);
+    }
+  }
+
+  // 小網-768
+  @include breakpoint(sm) {
+    .section-title {
+      padding: 0;
+    }
+
+    &__box {
+      width: 100%;
+      // height: 100%;
+      // width: vwm(715px);
+      // height: vwm(615px);
+      border: vwm(2px) solid $black;
+      border-radius: vwm(30px);
+      padding: vwm(47px) vwm(27px) vwm(55px) vwm(27px);
+      margin: 0 auto;
+
+      &:last-child {
+        margin-top: vwm(36px);
+      }
+
+    }
+
+    &__cards {
+      justify-content: space-between;
+      margin-top: vwm(43px);
+      margin-bottom: vwm(55px);
+
+    }
+
+    &__circle-card {
+      margin: 0;
+
+      .card-img {
+        // width: vwm(205px);
+        // height: vwm(205px);
+        margin-bottom: vwm(19px);
+      }
+
+      .card-desc {
+        font-size: clamp(12px, vwm(26.4px), vwm(26.4px));
+      }
+    }
+
+  }
+}
